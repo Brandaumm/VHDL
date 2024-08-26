@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 
-entity RelogioEstelita is
+entity RelogioVHDL is
     generic(clockFreq   :   integer := 50e6);   -- Valor do clock de entrada, DE10 Lite = 50 MHz
     port (
         clk     :   in      std_logic;      -- Sinal de clock de entrada
@@ -14,9 +14,9 @@ entity RelogioEstelita is
         segmentos_hora_u :   out std_logic_vector(0 to 6); -- Segmentos para horas (unidade)
         segmentos_hora_d :   out std_logic_vector(0 to 6)  -- Segmentos para horas (dezena)
     );
-end RelogioEstelita;
+end RelogioVHDL;
 
-architecture Comportamento of RelogioEstelita is
+architecture Comportamento of RelogioVHDL is
 
     signal s, m, h : integer range 0 to 59;   -- Contadores de segundos e minutos
     signal ticks   : integer range 0 to clockFreq;  -- Para contagem de ciclos de clock
